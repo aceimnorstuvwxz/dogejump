@@ -16,10 +16,10 @@ public class MapController : MonoBehaviour {
 
 		if ( _nodesList.Count > 0 ) {
 			IntVector3 lastPosition = _nodesList [_nodesList.Count - 1];
-			int dx = Random.value < 0.33f ?  -1 : Random.value < 0.33f ? 1 : 0;
+			int dx = 0;//Random.value < 0.33f ?  -1 : Random.value < 0.33f ? 1 : 0;
 			int dy = Random.value < 0.5f ? 1 : 0;
 
-			newPosition = new IntVector3 (lastPosition.x + dx, lastPosition.y + dy, lastPosition.z + 1);
+			newPosition = new IntVector3 (lastPosition.x + dx, lastPosition.y + dy, lastPosition.z + 1 + dy);
 		}
 
 		go.transform.position = newPosition.ToFloat();
