@@ -16,10 +16,10 @@ public class MapController : MonoBehaviour {
 
 		if ( _nodesList.Count > 0 ) {
 			IntVector3 lastPosition = _nodesList [_nodesList.Count - 1];
-			int dx = 0;//Random.value < 0.33f ?  -1 : Random.value < 0.33f ? 1 : 0;
+			int dx = Random.value < 0.33f ?  -1 : Random.value < 0.33f ? 1 : 0;
 			int dy = Random.value < 0.5f ? 1 : 0;
 
-			newPosition = new IntVector3 (lastPosition.x + dx, lastPosition.y + dy, lastPosition.z + 1 + dy);
+			newPosition = new IntVector3 (lastPosition.x + dx* ((dy > 0)? 2 : 1), lastPosition.y + dy, lastPosition.z + 1 + dy);
 		}
 
 		go.transform.position = newPosition.ToFloat();
@@ -34,7 +34,7 @@ public class MapController : MonoBehaviour {
 		_nodesList = new List<IntVector3> ();
 
 		// initly we have some node there!
-		for (int i = 0; i < 10; i++) {
+		for (int i = 0; i < 30; i++) {
 			AddNextNode();
 		}
 	}
